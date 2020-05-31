@@ -1,0 +1,108 @@
+<div class="item">
+    <form [formGroup]="forma">
+        <div class="row">
+            <div class="col-sm col-md-2 col-lg-2 col col-6">
+                <span class="contentset align-middle">
+                    {{ !editName ? wSet.name : ''}}
+                    <div class="input-group">
+                        <input *ngIf="editName" class="input-item textinput" formControlName="name"
+                            [(ngModel)]="wSet.name" type="text" class="form-control">
+                        <div class="input-group-prepend" *ngIf="editName">
+                            <span class="input-group-text">
+                                <i class="remixicon-close-circle-line" aria-hidden="true" (click)="editName=false"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <i *ngIf="!editName" class="remixicon-pencil-fill ri-xl" (click)="editName = true"></i>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-4 col-md-4 col-sm-4">
+                        <label class="titlee"> Reps</label>
+                        <input class="input-item textinput btn-size" formControlName="reps" [(ngModel)]="wSet.reps"
+                            type="text" class="form-control">
+                    </div>
+                    <div class="col-4 col-md-2 col-sm-4 align-items-center justify-content-center">
+                        <label class="titlee"></label>
+                        <label class="titlees"> <b>X</b> </label>
+                    </div>
+                    <div class="col-4 col-md-4 col-sm-4">
+                        <label class="titlee">Distance</label>
+                        <input class="input-item" formControlName="distance" [(ngModel)]="wSet.distance" type="text"
+                            class="form-control">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="row justify-content-md-center">
+                    <div class="col justify-content-md-center">
+                        <label class="titlee">Pace 1</label>
+                        <input class="btn-size" formControlName="pace" [(ngModel)]="auxPAce" type="datetime"
+                            class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxPAce, 'auxPAce')">
+                    </div>
+                    <div class="col justify-content-md-center" *ngIf="_D.model.swimmers >= 2">
+                        <label class="titlee">Pace 2</label>
+                        <input class="input-item btn-size" formControlName="pace2" [(ngModel)]="auxPAce2"
+                            type="datetime" class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxPAce2, 'auxPAce2')">
+                    </div>
+                    <div class="col" *ngIf="_D.model.swimmers >= 3">
+                        <label class="titlee">Pace 3</label>
+                        <input class="input-item btn-size" formControlName="pace3" [(ngModel)]="auxPAce3"
+                            type="datetime" class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxPAce3, 'auxPAce3')">
+                    </div>
+                    <div class="col" *ngIf="_D.model.swimmers >= 4">
+                        <label class="titlee">Pace 4</label>
+                        <input class="input-item btn-size" formControlName="pace4" [(ngModel)]="auxPAce4"
+                            type="datetime" class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxPAce4, 'auxPAce4')">
+                    </div>
+                    <div class="col" *ngIf="_D.model.swimmers >= 5">
+                        <label class="titlee">Pace 5</label>
+                        <input class="input-item btn-size" formControlName="pace5" [(ngModel)]="auxPAce5"
+                            type="datetime" class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxPAce5, 'auxPAce5')">
+                    </div>
+                    <div class="col" *ngIf="_D.model.swimmers < 2">
+                        <label class="titlee">Rest 1</label>
+                        <input class="input-item btn-size" formControlName="rest" [(ngModel)]="auxRest" type="datetime"
+                            class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxRest, 'auxRest')">
+                    </div>
+
+                    <div class="col" *ngIf="_D.model.swimmers < 2">
+                        <label class="titlee">Rest 2</label>
+                        <input class="input-item btn-size" formControlName="big_rest" [(ngModel)]="auxBigRest"
+                            type="datetime" class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxBigRest, 'auxBigRest')">
+                    </div>
+                    <div class="col" *ngIf="_D.model.swimmers >= 2">
+                        <label class="titlee">Interval</label>
+                        <input class="input-item btn-size" formControlName="interval" [(ngModel)]="auxinterval"
+                            type="datetime" class="form-control" mask="00:00" [validation]="true"
+                            (change)="saveseconds(auxinterval, 'auxinterval')">
+                    </div>
+                    <div class="col" *ngIf="_D.model.swimmers >= 2">
+                        <label class="titlee">TBS</label>
+                        <select class="custom-select" [(ngModel)]="wSet.tbs" formControlName="tbs">
+                            <option *ngFor="let tb of tbs; let i = index">{{tb}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col d-flex align-items-center justify-content-center text-dark">
+                <a style="cursor: pointer;" (click)="deleteItem(wSet)">
+                    <i class="ri-delete-bin-line ri-xl"></i>
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

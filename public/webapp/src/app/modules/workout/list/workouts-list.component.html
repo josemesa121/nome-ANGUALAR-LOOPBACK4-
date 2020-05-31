@@ -1,0 +1,59 @@
+<div class="content-header row justify-content-md-center">
+    <div class="content-header-left col-lg-8 col-md-12 mb-2">
+        <h3 class="content-header-title mb-0">Workout List</h3>
+    </div>
+</div>
+<div class="content-body">
+    <section class="row justify-content-md-center">
+        <div class="col-lg-8 col-md-12 mb-2">
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-header">
+                        <h4 class="card-title">Workouts</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <button class="btn btn-info btn-sm" (click)="showForm()"><i class="ft-plus white"></i> Create
+                Workout</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="workouts-list_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="workouts-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle dataTable" role="grid" aria-describedby="workouts-list_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th workouts-tabindex="0" workouts-rowspan="1" colspan="1">Name</th>
+                                                    <th workouts-tabindex="0" workouts-rowspan="1" colspan="1">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let workout of workouts; let i of index;">
+                                                    <td scope="row"> <a [routerLink]="['view', workout.id]">{{workout.name}}</a> </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-icon btn-info btn-sm" (click)="editItem(workout)">
+                              <i class="ft-edit-2"></i>
+                              <div></div>
+                            </button>
+                                                        <button type="button" class="btn btn-icon btn-danger btn-sm" (click)="deleteItem(workout)">
+                              <i class="ft-trash-2"></i>
+                              <div></div>
+                            </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Invoices table -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

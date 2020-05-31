@@ -1,0 +1,11 @@
+<div class="card-content gradient">
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="register(model)" class="form-horizontal form-simple">
+            <formly-form [form]="form" [fields]="fields" [model]="model">
+                <br>
+                <button class="btn btn btn-primary btn-lg btn-block borderbuton" type="submit"> Sign Up </button>
+            </formly-form>
+        </form>
+    </div>
+    <p class="text-center">I already have an account. <a [routerLink]="['/auth/login']" class="card-link">Login</a></p>
+</div>

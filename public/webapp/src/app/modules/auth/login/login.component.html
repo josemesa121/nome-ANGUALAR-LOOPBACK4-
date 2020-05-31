@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="login(model)">
+    <br>
+    <formly-form [form]="form" [fields]="fields" [model]="model">
+        <br>
+        <button class="btn btn-primary btn-lg btn-block bu align-center borderbuton" type="submit"> Log In </button>
+    </formly-form>
+</form>
+<div class="textp">
+    <p class="text-center">New to Nome App? <a [routerLink]="['/auth/register']" class="card-link">Register</a></p>
+</div>

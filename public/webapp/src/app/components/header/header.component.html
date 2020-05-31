@@ -1,0 +1,29 @@
+<div class="container header-container ">
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="#">
+            <img class="brand-logo" alt="NOME" height="30" src="../../../assets/images/Nome-logo.png"></a>
+
+        <ul class="nav navbar-nav nome-navbar ml-auto">
+            <li class="dropdown dropdown-user nav-item">
+                <a class="dropdown-toggle nav-link dropdown-user-link" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="mr-1">Hello,
+                        <span class="user-name text-bold-700">
+                            {{accountData.user.firstName}}
+                        </span>
+                        <img src="./assets/images/perfil.png" width="40" height="40" class="rounded-circle">
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" [routerLink]="['/account/profile']">
+                        <i class="ft-user"></i> Edit Profile
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" [routerLink]="['/auth/login']" (click)="logout()"><i class="ft-power"></i>
+                        Logout</a>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <div class="float-left">
+                <h1>Workout List</h1>
+            </div>
+            <div class="float-right">
+                <a class="btn btn-primary btn-primary-nome btn-padding-nome" [routerLink]="['/workouts/create']">+ Create Workout</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-workout-list-item *ngFor="let workout of workouts" [workout]="workout"></app-workout-list-item>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.header-navbar .navbar-header .navbar-brand .brand-logo {
+    width: 200px;
+}
+
+.header-container {
+    border-bottom: 1.5px solid rgb(80, 80, 80);
+}
+
+.nome-navbar {
+    color: #fff;
+}
+
+.nome-navbar .nav-link {
+    float: right;
+    color: #fff;
+}

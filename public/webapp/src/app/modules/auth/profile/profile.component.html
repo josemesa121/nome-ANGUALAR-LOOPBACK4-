@@ -1,0 +1,17 @@
+<div class="container">
+    <span class="title">Update your details</span>
+    <div class="item">
+        <form [formGroup]="form" (ngSubmit)="save(model)">
+            <formly-form [form]="form" [fields]="fields" [model]="model">
+            </formly-form>
+        </form>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-sm-8 col-md-4 col-lg-2 col col-6">
+            <button class="btn btn-primary btn-primary-nome btn-padding-nome  " type="submit"> Save Details </button>
+        </div>
+        <div class="col-sm-8 col-md-4 col-lg-2 col col-6">
+            <a class="btn btn-outline-primary btn-padding-nome" style="border-radius: 27px; width: 164px;" [routerLink]=" [ '/workouts/'] "> Go Back </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+    /* You can add global styles to this file, and also import other style files */
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        height: 100%;
+    }
+    
+    footer {
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        color: white;
+        text-align: center;
+    }
+    
+    .borderbuton {
+        border-radius: 27px;
+    }
+    
+    .borderinput {
+        border-radius: 14px;
+    }
+    
+    .pr {
+        background: rgb(255, 255, 255);
+        box-shadow: 0px 17px 23px -13px rgb(230, 230, 230);
+        border-radius: 14px;
+        height: 188px;
+        width: 740px;
+    }
+    
+    .bmanage {
+        background: rgb(255, 255, 255);
+        border-radius: 14px;
+        box-shadow: 0px 17px 23px -13px rgb(230, 230, 230);
+        height: 157px;
+        width: 740px;
+    }
+    
+    // .btn-size {
+    //     width: 50%;
+    // }
+    // nz-timepicker ::ng-deep .ant-time-picker {
+    //     width: 100%;
+    // }

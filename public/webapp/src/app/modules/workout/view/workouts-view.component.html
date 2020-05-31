@@ -1,0 +1,125 @@
+<div class="content-header row justify-content-md-center">
+    <div class="content-header-left col-lg-8 col-md-12 mb-2">
+        <h3 class="content-header-title mb-0">Workouts Summary</h3>
+        <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="['/workouts']">Workouts</a></li>
+                    <li class="breadcrumb-item active">{{workout.name}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <section class="row justify-content-md-center">
+        <div class="col-lg-8 col-md-12 mb-2">
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-header">
+                        <h4 class="card-title">Workout Summary - {{workout.name}}</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <button class="btn btn-info btn-sm" (click)="showForm()"><i class="ft-plus white"></i> Add
+                                Sets</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div id="workouts-list_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table id="workouts-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle dataTable" role="grid" aria-describedby="workouts-list_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        {{workout | json}}
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Reps</th>
+                                                        <th scope="col">Distance</th>
+                                                        <th scope="col">Pace</th>
+                                                        <th scope="col" *ngIf="workout.swimmers >=2">Pace2</th>
+                                                        <th scope="col" *ngIf="workout.swimmers >=3">Pace3</th>
+                                                        <th scope="col" *ngIf="workout.swimmers >=4">Pace4</th>
+                                                        <th scope="col" *ngIf="workout.swimmers >=5">Pace5</th>
+                                                        <th scope="col">Rest</th>
+                                                        <th scope="col">Big Rest</th>
+                                                        <th scope="col">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let set of workout.sets">
+                                                        <td scope="row"> {{set.name}} </td>
+                                                        <td scope="row"> {{set.reps}} </td>
+                                                        <td scope="row"> {{set.distance}} </td>
+                                                        <td scope="row"> {{set.pace1}} </td>
+                                                        <td scope="row" *ngIf="workout.swimmers >=2"> {{set.pace2}} </td>
+                                                        <td scope="row" *ngIf="workout.swimmers >=3"> {{set.pace3}} </td>
+                                                        <td scope="row" *ngIf="workout.swimmers >=4"> {{set.pace4}} </td>
+                                                        <td scope="row" *ngIf="workout.swimmers >=5"> {{set.pace5}} </td>
+                                                        <td scope="row"> {{set.rest}} </td>
+                                                        <td scope="row"> {{set.big_rest}} </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-icon btn-info btn-sm" (click)="editItem(set)">
+                                                                <i class="ft-edit-2"></i>
+                                                                <div></div>
+                                                            </button>
+                                                            <button type="button" class="btn btn-icon btn-danger btn-sm" (click)="deleteItem(set)">
+                                                                <i class="ft-trash-2"></i>
+                                                                <div></div>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5">
+                                            <div class="dataTables_info" id="workouts-list_info" role="status" aria-live="polite">
+                                                Showing {{ countSet | i18nPlural: itemPluralMapping }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row justify-content-md-center" *ngIf="addData">
+        <div class="col-lg-8 col-md-12 mb-2">
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-header">
+                        <h4 class="card-title">Sets</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div id="workouts-list_wrapper" class="">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <form [formGroup]="form" (ngSubmit)="save(model)" class="form">
+                                            <div class="form-body">
+                                                <formly-form [form]="form" [fields]="fields" [model]="model">
+                                                </formly-form>
+                                            </div>
+                                            <div class="form-actions right">
+                                                <button type="button" class="btn btn-secondary btn-sm" (click)="showForm()"><i class="ft-x"></i>
+                                                    Cancel</button>
+                                                <button type="submit" class="btn btn-dark btn-sm"><i
+                                                        class="ft-save"></i> Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

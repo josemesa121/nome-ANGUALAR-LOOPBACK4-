@@ -1,0 +1,69 @@
+<div class="item" *ngIf="!isDeleted">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 col-lg-3  d-flex align-items-center justify-content-center">
+            <span class="item-name align-middle">
+                {{workout.name}}
+            </span>
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-7">
+            <div class="col">
+                <div class="row" *ngFor="let wSet of workout.sets">
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info">
+                        <div class="title">Reps</div>
+                        <div class="content">{{wSet.reps}}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info">
+                        <div class="title">Distance</div>
+                        <div class="content">{{wSet.distance}}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info">
+                        <div class="title">Pace 1</div>
+                        <div class="content">{{ secsToTime(wSet.pace1) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers >=2">
+                        <div class="title">Pace 2</div>
+                        <div class="content">{{ secsToTime(wSet.pace2) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers >=3">
+                        <div class="title">Pace 3</div>
+                        <div class="content">{{ secsToTime(wSet.pace3) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers >=4">
+                        <div class="title">Pace 4</div>
+                        <div class="content">{{ secsToTime(wSet.pace4) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers >=5">
+                        <div class="title">Pace 5</div>
+                        <div class="content">{{ secsToTime(wSet.pace5) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers < 2">
+                        <div class="title">Rest 1</div>
+                        <div class="content">{{ secsToTime(wSet.rest) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers < 2">
+                        <div class="title">Rest 2</div>
+                        <div class="content">{{ secsToTime(wSet.big_rest) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers >= 2">
+                        <div class="title">Interval</div>
+                        <div class="content">{{ secsToTime(wSet.invterval) }}</div>
+                    </div>
+                    <div class="col col-sm-6 col-md-2 col-lg-2 item-info" *ngIf="workout.swimmers >= 2">
+                        <div class="title">TBS</div>
+                        <div class="content">{{ secsToTime(wSet.tbs) }}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-2 col-lg-2 d-flex align-items-center justify-content-center">
+            <a [routerLink]="['/workouts/edit/' + workout.id]" style="color: black">
+                <i class="ri-edit-2-line ri-xl"></i>
+            </a>
+            <a style="cursor: pointer;" (click)="delete(workout)">
+                <i class="ri-delete-bin-line ri-xl"></i>
+            </a>
+        </div>
+    </div>
+</div>

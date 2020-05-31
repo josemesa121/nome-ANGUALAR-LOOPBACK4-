@@ -1,0 +1,45 @@
+<div class="content-header row justify-content-md-center">
+    <div class="content-header-left col-md-6 col-6 mb-2">
+        <h3 class="content-header-title mb-0">Workouts Add/Edit</h3>
+        <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="['/workouts']">Workouts</a></li>
+                    <li class="breadcrumb-item active">{{model.name}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <section class="row justify-content-md-center">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-header">
+                        <h4 class="card-title">Workouts</h4>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div id="workouts-list_wrapper" class="">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form [formGroup]="form" (ngSubmit)="save(model)">
+                                        <formly-form [form]="form" [fields]="fields" [model]="model">
+                                            <div class="p-grid">
+                                                <div class="p-col">
+                                                    <button class="btn btn-dark btn-sm" type="submit"> Save </button>
+                                                </div>
+                                            </div>
+                                        </formly-form>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
