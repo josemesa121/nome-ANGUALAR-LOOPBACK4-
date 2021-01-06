@@ -22,7 +22,7 @@
     "@ngx-formly/bootstrap": "^5.4.1",
     "@ngx-formly/core": "^5.4.1",
     "angular2-notifications": "^2.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "moment": "^2.18.1",
     "ng-zorro-antd": "^8.4.0",
     "ng5-slider": "^1.2.4",
